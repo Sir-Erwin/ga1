@@ -49,7 +49,7 @@ namespace sort {
         /* Manual monkey swap. 🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒 */
         T temp = node->data;
         node->data = node->next->data;
-        node->next->data = node->data;
+        node->next->data = node->data; // Shouldn't it be node->next->data = temp ?
         }
         RecurBubbleSort(curHead, node->next);
     }
