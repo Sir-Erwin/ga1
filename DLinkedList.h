@@ -46,7 +46,7 @@ class DLinkedList {
       tail->next = nullptr;
     }
     delete temp;
-  };
+  }; /*
   void Remove(int index) {
     if (isEmpty()) return;
     if (index == 0) RemoveHead();
@@ -62,7 +62,7 @@ class DLinkedList {
       temp->prev->next = temp->next;
       delete temp;
     }
-  };
+  }; */
   void AddHead(T data) {
     Node<T> *val = new Node<T>;
     val->data = data;
@@ -95,7 +95,7 @@ class DLinkedList {
   };
   void Add(int index) {
     Node<T> *del = 0;
-  };
+  }; /*
   T& operator[](int index) const {
     if (index >= size()) return tail->data;
     Node<T> *temp = head;
@@ -105,14 +105,14 @@ class DLinkedList {
       i++;
     }
     return temp->data;
-  };
+  }; */ // Does The Size Function work? It kinda looks iffy...
   std::size_t size(Node<T> *temp) {
     if (temp == nullptr) return 0;
     return size(temp->next) + 1;
   };
   std::size_t size() {
     return size(head);
-  };
+  }; /*
   void printBackwards() {
     Node<T>* temp = tail;
     while (temp != nullptr) {
@@ -120,7 +120,7 @@ class DLinkedList {
       std::cout << ", ";
       temp = temp->prev;
     }
-  }
+  }; */ /*
   void printForwards() {
     Node<T>* temp = head;
     while (temp != nullptr) {
@@ -128,7 +128,7 @@ class DLinkedList {
       std::cout << ", ";
       temp = temp->next;
     }
-  }
+  }; */
   Node<T>* getHead() {
     return head;
   }
