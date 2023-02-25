@@ -6,7 +6,7 @@
 
 struct bar {
 	std::string name;
-	int count;
+	int count = 1;
 
 	friend std::ostream& operator<< (std::ostream& os, bar& rhs) {
 		return os << rhs.name << ": " << rhs.id();

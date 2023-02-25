@@ -87,7 +87,7 @@ template<typename T = bar>
 void printInnocentRecursive(Node<T>* curr) {
 	if (curr == nullptr)
 		return;
-	if (curr->data.count == 1)
+	if (curr->data.count <= 1)
 		cout << curr->data.name << endl;
 	printInnocentRecursive(curr->next);
 }

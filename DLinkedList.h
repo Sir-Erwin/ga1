@@ -75,6 +75,11 @@ class DLinkedList {
       AddTail(data);
   }
 
+  void add(std::string str) {
+      T t(str);
+      add(t);
+  }
+
   void AddHead(T data) {
     Node<T> *val = new Node<T>;
     val->data = data;
@@ -106,7 +111,7 @@ class DLinkedList {
       val->next = nullptr;
       val->prev = tail;
       tail->next = val;
-      tail = val;
+      tail = tail->next;
     }
   };
 
@@ -172,7 +177,7 @@ class DLinkedList {
         }
     }
     else {
-        if (node->data > node->next->data) {
+        if (node->data.name > node->next->data.name) {
         /* Manual monkey swap. 🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒 */
         T temp = node->data;
         node->data = node->next->data;
@@ -180,6 +185,35 @@ class DLinkedList {
         }
         RecurBubbleSort(curHead, node->next);
     }
+  }
+
+  void RecurBubbleSort() {
+      RecurBubbleSort(getHead(), getHead());
+  }
+
+  void checkDuplicates(Node<T>* curHead, Node<T>* node) {
+      if (node->next == nullptr) {
+          if (curHead->next == nullptr) {
+              return;
+          }
+          else {
+              RecurBubbleSort(curHead->next, curHead->next);
+          }
+      }
+      else {
+          if (node->data.name == node->next->data.name) {
+              node->data.count++;
+
+              Node<T>* temp = node->next;
+              node->next = node->next->next;
+              delete temp;
+          }
+          RecurBubbleSort(curHead, node->next);
+      }
+  }
+
+  void checkDuplicates() {
+      checkDuplicates(getHead(), getHead());
   }
 };
 

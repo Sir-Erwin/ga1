@@ -24,6 +24,7 @@ string decode(string& str,int i=0,int index=0){
 int main3(){
     string test;
     while (test != "N") {
+        cout << "--Start--" << endl;
         cin >> test;
         cout << decode(test) << endl;
     }

@@ -13,19 +13,20 @@
 using namespace std;
 
 DLinkedList<> bar1;
-DLinkedList<> bar2;
+//DLinkedList<> bar2;
 
 ifstream inp;
 ofstream out;
 
-bool add(int _case, string encoded) {
+//Change when decode function is ready
+bool add(int _case, string encoded) { 
 	bool success = false;
-	string decoded;
+	string decoded = encoded;
 	bar barcode;
 
 	// decode method from "decoder.h"
 	try {
-		decoded = decode(encoded);
+		//decoded = decode(encoded);
 	}
 	catch (exception e) {
 		cout << "IN ADD FUNCTION : " << e.what() << endl;
@@ -45,7 +46,7 @@ bool add(int _case, string encoded) {
 	} 
 
 	else if (_case == 2) {
-		bar2.add(barcode);
+		bar1.add(barcode);
 		success = true;
 	}
 
@@ -82,10 +83,23 @@ bool getInput() {
 }
 
 bool print() {
-	DLinkedList<> full = bar1;
-	full.getTail()->next = bar2.getHead();
-	printInnocentRecursive(full.getHead());
+	//DLinkedList<> full = bar1;
+	//full.getTail()->next = bar2.getHead();
+
+	cout << "Guilty:" << endl;
+	printGuiltyRecursive(bar1.getHead());
+
+	cout << "Innocent:" << endl;
+	printInnocentRecursive(bar1.getHead());
 	return true;
+}
+
+// Just for Testing Purposes
+void linkTester() {
+	DLinkedList<> link;
+	link.add("A"); link.add("B"); link.add("C"); link.add("D"); link.add("E");
+	
+	printInnocentRecursive(link.getHead());
 }
 
 int main(int argc, char* argv[]) {
@@ -99,11 +113,17 @@ int main(int argc, char* argv[]) {
 	inp.open(input);
 	out.open(output);
 
-	main3();
+	//linkTester();
+	//main3(); //Decoder
 
-	//getInput();
+	getInput();
 
-	//print();
+	//Sort
+	bar1.RecurBubbleSort();
+
+	bar1.checkDuplicates();
+
+	print();
 
 	return 0;
 }
