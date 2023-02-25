@@ -2,9 +2,11 @@
 #include <iostream>
 using namespace std;
 
-string reverse(const string& in,int i=0){
-    return i<in.length()?reverse(in,++i)+in[i]:"";
+string reverse(const string& str,int i=0){
+    return i< str.length()?reverse(str,++i)+ str[i]:"";
 }
+
+
 string decode(string& str,int i=0,int index=0){
     if(i>=str.length())
         return str;
@@ -18,9 +20,12 @@ string decode(string& str,int i=0,int index=0){
     }
     return decode(str,++i,index);
 }
-int main(){
+
+int main3(){
     string test;
-    cin>>test;
-    cout<<decode(test)<<endl;
+    while (test != "N") {
+        cin >> test;
+        cout << decode(test) << endl;
+    }
     return 0;
 }

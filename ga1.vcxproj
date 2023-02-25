@@ -128,13 +128,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ArgumentManager.h" />
+    <ClInclude Include="barcode.h" />
+    <ClInclude Include="decoder.h" />
+    <ClInclude Include="DLinkedList.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="ans1.txt" />
+    <Text Include="ans2.txt" />
+    <Text Include="ans3.txt" />
     <Text Include="input1.txt" />
     <Text Include="input2.txt" />
     <Text Include="input3.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ga1_printing.h" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

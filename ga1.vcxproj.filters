@@ -18,6 +18,15 @@
     <ClInclude Include="ArgumentManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="decoder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="barcode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DLinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="input1.txt">
@@ -29,10 +38,22 @@
     <Text Include="input3.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="ans1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="ans2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="ans3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ga1_printing.h">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
