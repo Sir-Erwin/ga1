@@ -8,7 +8,7 @@
 
 #include "decoder.h"
 
-#include "ga1_printing.h"
+//#include "ga1_printing.h"
 
 using namespace std;
 
@@ -82,33 +82,68 @@ bool getInput() {
 	return success;
 }
 
+stringstream guilty;
+template<typename T = bar>
+void printGuiltyRecursive(Node<T>* curr) {
+	if (curr == nullptr)
+		return;
+	if (curr->data.count > 1)
+		guilty << curr->data.name << endl;
+	printGuiltyRecursive(curr->next);
+}
+
+stringstream innoc;
+template<typename T = bar>
+void printInnocentRecursive(Node<T>* curr) {
+	if (curr == nullptr)
+		return;
+	if (curr->data.count <= 1)
+		innoc << curr->data.name << endl; // << "--" << curr->data.count
+	printInnocentRecursive(curr->next);
+}
+
+void printAll(Node<>* curr) {
+	if (curr == 0)
+		return;
+
+	cout << curr->data.name << "--" << curr->data.count << endl;
+	printAll(curr->next);
+}
+
+void printAll() {
+	printAll(bar1.getHead());
+}
+
 bool print() {
-	//DLinkedList<> full = bar1;
-	//full.getTail()->next = bar2.getHead();
 
-	cout << "Guilty:" << endl;
 	printGuiltyRecursive(bar1.getHead());
+	if(guilty.str().size() > 0)
+		out << "Guilty:\n" << guilty.str().substr(0, guilty.str().size()-1) << endl;
 
-	cout << "Innocent:" << endl;
 	printInnocentRecursive(bar1.getHead());
+	if(innoc.str().size() > 0)
+		out << "Innocent:\n" << innoc.str().substr(0, innoc.str().size() - 1) << endl;
+	
 	return true;
 }
 
 // Just for Testing Purposes
+/*
 void linkTester() {
 	DLinkedList<> link;
 	link.add("A"); link.add("B"); link.add("C"); link.add("D"); link.add("E");
 	
 	printInnocentRecursive(link.getHead());
 }
+*/
 
 int main(int argc, char* argv[]) {
 	ArgumentManager am(argc, argv);
-	//string input = am.get("input");
-	//string output = am.get("output");
+	string input = am.get("input");
+	string output = am.get("output");
 
-	string input = "input1.txt";
-	string output = "output.txt";
+	//string input = "input3.txt";
+	//string output = "output.txt";
 
 	inp.open(input);
 	out.open(output);
@@ -124,6 +159,9 @@ int main(int argc, char* argv[]) {
 	bar1.checkDuplicates();
 
 	print();
+
+	inp.close();
+	out.close();
 
 	return 0;
 }

@@ -2,6 +2,7 @@
 #define GA1_PRINTING_H_
 
 #include <iostream>
+#include <fstream>
 //#include <fstream>
 //#include <map>
 //#include <vector>
@@ -71,27 +72,39 @@ void bar::print(node* head) //prints all of the items
 }
 */
 
+//stringstream str;
 
 //set 3 -- Recursive function to print guilty IDs in ascending order
-template<typename T=bar>
-void printGuiltyRecursive(Node<T>* curr) {
-	if (curr == nullptr)
-		return;
-	if (curr->data.count > 1)
-		cout << curr->data.name << endl;
-	printGuiltyRecursive(curr->next);
+
+/* 
+
+	- Both Functions were pasted to Source.cpp
+
+*/
+
+
+template<typename T = bar>
+void printGuiltyRecursive(Node<T>* curr, string _out) {
+	
+	printGuiltyRecursive(curr);
 }
 
 // Recursive function to print innocent IDs in ascending order
+
+
 template<typename T = bar>
-void printInnocentRecursive(Node<T>* curr) {
-	if (curr == nullptr)
-		return;
-	if (curr->data.count <= 1)
-		cout << curr->data.name << endl;
-	printInnocentRecursive(curr->next);
+void printInnocentRecursive(Node<T>* curr, string _out) {
+	
+	printInnocentRecursive(curr);
 }
 
+/*
+string getStr(){
+	string ans = str.str();
+	str.clear();
+	return ans;
+}
+*/
 
 //set 4  does printing need to be recursive??
 /*
