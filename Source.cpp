@@ -26,7 +26,7 @@ bool add(int _case, string encoded) {
 
 	// decode method from "decoder.h"
 	try {
-		//decoded = decode(encoded);
+		decoded = decode(encoded);
 	}
 	catch (exception e) {
 		cout << "IN ADD FUNCTION : " << e.what() << endl;
