@@ -200,9 +200,17 @@ public:
 		}
 	}
 
+	void RecurBubbleSort(int i) {
+		if (i < 0)
+			return;
+
+		RecurBubbleSort(getHead(), getHead());
+
+		RecurBubbleSort(i-1);
+	}
+
 	void RecurBubbleSort() {
-		for(int i = 0; i < sqrt(size(getHead())) + 1; i++)
-			RecurBubbleSort(getHead(), getHead());
+		RecurBubbleSort(sqrt(size(getHead())));
 	}
 
 	bool checkDuplicates(Node<T>* node) {
@@ -226,7 +234,9 @@ public:
 	}
 
 	void checkDuplicates() {
-		while (checkDuplicates(getHead()));
+		if (!checkDuplicates(getHead()))
+			return;
+		checkDuplicates();
 	}
 };
 
